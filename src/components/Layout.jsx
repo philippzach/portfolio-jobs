@@ -5,8 +5,8 @@ import PropTypes from 'prop-types';
 import { StaticQuery, graphql } from 'gatsby';
 import { injectGlobal } from 'emotion/macro';
 import { ThemeProvider } from 'emotion-theming';
-import 'typeface-lora';
-import 'typeface-source-sans-pro';
+import 'typeface-roboto';
+import 'typeface-poppins';
 import { Footer, SEO } from 'components';
 import { theme, reset } from 'styles';
 

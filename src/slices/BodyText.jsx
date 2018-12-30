@@ -6,7 +6,7 @@ const Content = styled.div`
   max-width: ${props => props.theme.maxWidthText};
 `;
 
-const BodyText = ({ input }) => <Content dangerouslySetInnerHTML={{ __html: input.primary.text.html }} />;
+const BodyText = ({ input }) => <Content className="center" dangerouslySetInnerHTML={{ __html: input.primary.text.html }} />;
 
 export default BodyText;
 

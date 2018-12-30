@@ -2,12 +2,21 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled/macro';
 import { ListItem } from 'components/Listing';
+import { theme } from 'styles';
 
-const List = styled.ul`
+const List = styled.div`
   margin-top: 4rem;
   margin-bottom: 4rem;
-  list-style-type: none;
   margin-left: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px;
+  @media (max-width: ${theme.breakpoints.m}) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media (max-width: ${theme.breakpoints.s}) {
+    grid-template-columns: repeat(1, 1fr);
+  }
 `;
 
 export default class Listing extends Component {

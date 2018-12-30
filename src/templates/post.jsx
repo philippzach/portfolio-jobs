@@ -90,15 +90,7 @@ export const pageQuery = graphql`
               }
             }
           }
-          ... on PrismicPostBodyCodeBlock {
-            slice_type
-            id
-            primary {
-              code_block {
-                html
-              }
-            }
-          }
+
           ... on PrismicPostBodyQuote {
             slice_type
             id
@@ -127,7 +119,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    posts: allPrismicPost(limit: 2, sort: { fields: [data___date], order: DESC }) {
+    posts: allPrismicPost(sort: { fields: [data___date], order: DESC }) {
       edges {
         node {
           uid
@@ -135,6 +127,16 @@ export const pageQuery = graphql`
             title {
               text
             }
+            location {
+              text
+            }
+            time {
+              text
+            }
+            description {
+              text
+            }
+            coloforpicture
             date(formatString: "DD.MM.YYYY")
             categories {
               category {
@@ -149,5 +151,6 @@ export const pageQuery = graphql`
         }
       }
     }
+    
   }
 `;

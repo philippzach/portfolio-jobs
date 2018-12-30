@@ -1,9 +1,9 @@
 {
   "name": "gatsby-starter-prismicio",
-  "description": "Gatsby Starter for Prismic.io",
+  "description": "Swiss Startup Jobs",
   "license": "MIT",
   "version": "1.0.0",
-  "author": "LekoArts <hello@lekoarts.de>",
+  "author": "Philipp Zach <dev@philippzach.com>",
   "scripts": {
     "dev": "gatsby develop -o",
     "build": "gatsby build",
@@ -41,8 +41,9 @@
     "react-dom": "^16.5.2",
     "react-helmet": "^5.2.0",
     "react-typography": "^0.16.13",
-    "typeface-lora": "^0.0.54",
-    "typeface-source-sans-pro": "^0.0.54",
+    "tachyons": "^4.11.1",
+    "typeface-poppins": "0.0.54",
+    "typeface-roboto": "0.0.54",
     "typography": "^0.16.17"
   },
   "devDependencies": {

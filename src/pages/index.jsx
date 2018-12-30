@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
+import Tachyons from 'tachyons/css/tachyons.min.css';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled/macro';
 import { graphql } from 'gatsby';
 import { Layout, Listing, Wrapper, Title } from 'components';
+import ListingStartup from '../components/Listing/ListingStartup';
 
 const Hero = styled.header`
   background-color: ${props => props.theme.colors.greyLight};
@@ -11,8 +13,8 @@ const Hero = styled.header`
 `;
 
 const HeroInner = styled(Wrapper)`
-  padding-top: 13rem;
-  padding-bottom: 13rem;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
   h1 {
     margin-bottom: 2rem;
   }
@@ -42,59 +44,11 @@ const HeroText = styled.div`
   }
 `;
 
-const Social = styled.ul`
-  list-style-type: none;
-  display: flex;
-  flex-wrap: wrap;
-  margin-left: 0;
-  font-family: 'Source Sans Pro', -apple-system, 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica', 'Arial',
-    sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
-  li {
-    display: inline;
-    &:not(:first-child) {
-      margin-left: 2.5rem;
-      @media (max-width: ${props => props.theme.breakpoints.s}) {
-        margin-left: 1.75rem;
-      }
-    }
-    a {
-      font-style: normal;
-      color: ${props => props.theme.colors.greyDark};
-      font-size: 1.333rem;
-      font-weight: 600;
-      &:hover,
-      &:focus {
-        color: ${props => props.theme.colors.primary};
-        text-decoration: none;
-      }
-      @media (max-width: ${props => props.theme.breakpoints.s}) {
-        font-size: 1.2rem;
-      }
-    }
-  }
-`;
-
-const ProjectListing = styled.ul`
-  list-style-type: none;
-  margin-left: 0;
-  margin-top: 4rem;
-  li {
-    margin-bottom: 1.45rem;
-    a {
-      font-size: 2.369rem;
-      font-style: normal;
-      color: ${props => props.theme.colors.black};
-      @media (max-width: ${props => props.theme.breakpoints.s}) {
-        font-size: 1.777rem;
-      }
-    }
-  }
-`;
 
 class Index extends Component {
   render() {
     const {
-      data: { homepage, social, posts, projects },
+      data: { homepage, posts, startup },
     } = this.props;
     return (
       <Layout>
@@ -102,26 +56,15 @@ class Index extends Component {
           <HeroInner>
             <h1>{homepage.data.title.text}</h1>
             <HeroText dangerouslySetInnerHTML={{ __html: homepage.data.content.html }} />
-            <Social>
-              {social.edges.map(s => (
-                <li key={s.node.primary.label.text}>
-                  <a href={s.node.primary.link.url}>{s.node.primary.label.text}</a>
-                </li>
-              ))}
-            </Social>
           </HeroInner>
         </Hero>
         <Wrapper style={{ paddingTop: '2rem', paddingBottom: '2rem' }}>
-          <Title style={{ marginTop: '4rem' }}>Recent posts</Title>
+          <Title style={{ marginTop: '4rem' }}>Swiss Startup Factory Jobs</Title>
+          
           <Listing posts={posts.edges} />
-          <Title style={{ marginTop: '8rem' }}>Recent projects</Title>
-          <ProjectListing>
-            {projects.edges.map(project => (
-              <li key={project.node.primary.label.text}>
-                <a href={project.node.primary.link.url}>{project.node.primary.label.text}</a>
-              </li>
-            ))}
-          </ProjectListing>
+          <Title style={{ marginTop: '4rem' }}>Startup Jobs</Title>
+         
+          <ListingStartup posts={startup.edges} />
         </Wrapper>
       </Layout>
     );
@@ -133,6 +76,7 @@ export default Index;
 Index.propTypes = {
   data: PropTypes.shape({
     posts: PropTypes.object.isRequired,
+    startup: PropTypes.object.isRequired
   }).isRequired,
 };
 
@@ -148,20 +92,6 @@ export const pageQuery = graphql`
         }
       }
     }
-    social: allPrismicHeroLinksBodyLinkItem {
-      edges {
-        node {
-          primary {
-            label {
-              text
-            }
-            link {
-              url
-            }
-          }
-        }
-      }
-    }
     posts: allPrismicPost(sort: { fields: [data___date], order: DESC }) {
       edges {
         node {
@@ -170,6 +100,16 @@ export const pageQuery = graphql`
             title {
               text
             }
+            location {
+              text
+            }
+            time {
+              text
+            }
+            description {
+              text
+            }
+            coloforpicture
             date(formatString: "DD.MM.YYYY")
             categories {
               category {
@@ -184,15 +124,33 @@ export const pageQuery = graphql`
         }
       }
     }
-    projects: allPrismicProjectsBodyLinkItem {
+    startup: allPrismicStartup(sort: { fields: [data___date], order: DESC }) {
       edges {
         node {
-          primary {
-            label {
+          uid
+          data {
+            title {
               text
             }
-            link {
-              url
+            location {
+              text
+            }
+            time {
+              text
+            }
+            description {
+              text
+            }
+            coloforpicture
+            date(formatString: "DD.MM.YYYY")
+            categories {
+              category {
+                document {
+                  data {
+                    name
+                  }
+                }
+              }
             }
           }
         }

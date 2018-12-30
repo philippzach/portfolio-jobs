@@ -63,7 +63,7 @@ module.exports = {
     {
       resolve: 'gatsby-source-prismic',
       options: {
-        repositoryName: 'gatsby-starter-prismic',
+        repositoryName: 'swiss-startup-jobs',
         accessToken: `${process.env.API_KEY}`,
         linkResolver: () => post => `/${post.uid}`,
         htmlSerializer: () => (type, element, content) => {

@@ -25,25 +25,60 @@ exports.createPages = async ({ graphql, actions }) => {
           }
         }
       }
+      allPrismicStartup {
+        edges {
+          node {
+            id
+            uid
+            data {
+              categories {
+                category {
+                  document {
+                    data {
+                      name
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
     }
   `);
 
   const postTemplate = path.resolve('src/templates/post.jsx');
   const categoryTemplate = path.resolve('src/templates/category.jsx');
+  const startupTemplate = path.resolve('src/templates/poststartup.jsx');
 
   const categorySet = new Set();
-  const postsList = pages.data.allPrismicPost.edges;
 
+  const postsList = pages.data.allPrismicPost.edges;
   postsList.forEach(edge => {
     if (edge.node.data.categories[0].category) {
       edge.node.data.categories.forEach(cat => {
         categorySet.add(cat.category.document[0].data.name);
       });
     }
-
     createPage({
       path: `/${edge.node.uid}`,
       component: postTemplate,
+      context: {
+        uid: edge.node.uid,
+      },
+    });
+  });
+
+  const postsListStartup = pages.data.allPrismicStartup.edges;
+  postsListStartup.forEach(edge => {
+    // if (edge.node.data.categories[0].category) {
+    //   edge.node.data.categories.forEach(cat => {
+    //     categorySet.add(cat.category.document[0].data.name);
+    //   });
+    // }
+    createPage({
+      path: `/${edge.node.uid}`,
+      component: startupTemplate,
       context: {
         uid: edge.node.uid,
       },
@@ -61,6 +96,7 @@ exports.createPages = async ({ graphql, actions }) => {
     });
   });
 };
+
 
 /* Allow us to use something like: import { X } from 'directory' instead of '../../folder/directory' */
 exports.onCreateWebpackConfig = ({ actions }) => {

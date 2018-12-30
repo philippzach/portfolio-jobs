@@ -43,7 +43,7 @@ const Category = ({
     </Hero>
     <Wrapper>
       <Title style={{ marginTop: '4rem' }}>
-        {totalCount} {totalCount === 1 ? 'Post' : 'Posts'} {totalCount === 1 ? 'was' : 'were'} tagged with "{category}"
+        {totalCount} {totalCount === 1 ? 'Job' : 'Jobs'} {totalCount === 1 ? 'is' : 'are'} open at "{category}"
       </Title>
       <Listing posts={edges} />
     </Wrapper>
@@ -83,6 +83,16 @@ export const pageQuery = graphql`
             title {
               text
             }
+            location {
+              text
+            }
+            time {
+              text
+            }
+            description {
+              text
+            }
+            coloforpicture
             date(formatString: "DD.MM.YYYY")
             categories {
               category {

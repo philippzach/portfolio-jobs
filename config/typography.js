@@ -4,11 +4,11 @@ import Typography from 'typography';
 // The scaleRatio will be overwritten for smaller breakpoints in src/components/Layout
 
 const typography = new Typography({
-  title: 'Gatsby Starter Prismic.io',
+  title: 'Swiss Startup Group',
   baseFontSize: '18px',
   baseLineHeight: 1.45,
   headerFontFamily: [
-    'Lora',
+    'Poppins',
     '-apple-system',
     'BlinkMacSystemFont',
     'Segoe UI',
@@ -21,7 +21,7 @@ const typography = new Typography({
     'Segoe UI Symbol',
   ],
   bodyFontFamily: [
-    'Lora',
+    'Roboto',
     '-apple-system',
     'BlinkMacSystemFont',
     'Segoe UI',

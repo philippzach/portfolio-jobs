@@ -18,32 +18,31 @@ const Hero = styled.header`
   display: flex;
   align-items: center;
   background-repeat:no-repeat;
--webkit-background-size:cover;
--moz-background-size:cover;
--o-background-size:cover;
-background-size:cover;
-background-position:center;
-height: 350px;
+  -webkit-background-size:cover;
+  -moz-background-size:cover;
+  -o-background-size:cover;
+  background-size:cover;
+  background-position:center;
+  height: 350px;
 `;
 
 const HeroInner = styled(Wrapper)`
   padding-top: 3rem;
-  padding-bottom: 3rem;
   max-width: 900px;
   h1 {
     margin-bottom: 2rem;
   }
   @media (max-width: ${props => props.theme.breakpoints.l}) {
-    padding-top: 10rem;
-    padding-bottom: 10rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
   }
   @media (max-width: ${props => props.theme.breakpoints.m}) {
-    padding-top: 8rem;
-    padding-bottom: 8rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
   }
   @media (max-width: ${props => props.theme.breakpoints.s}) {
-    padding-top: 6rem;
-    padding-bottom: 6rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
   }
 `;
 

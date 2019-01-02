@@ -6,7 +6,7 @@ import Categories from './CategoriesStartup.jsx';
 import '../../styles/listitem.css';
 
 const Item = styled.div`
-  margin-bottom: 1.45rem;
+ 
 `;
 
 const Headline = styled.p`

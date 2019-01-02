@@ -5,21 +5,30 @@ import styled from '@emotion/styled/macro';
 import { Layout, Listing, Wrapper, SliceZone, Title, SEO, Header } from 'components';
 import Categories from '../components/Listing/CategoriesStartup';
 import website from '../../config/website';
+import Background from '../../static/jobs.jpg'
 
 const Hero = styled.section`
   background-color: ${props => props.theme.colors.greyLight};
+  background-image: url("${Background}");
+  background-repeat:no-repeat;
+  -webkit-background-size:cover;
+  -moz-background-size:cover;
+  -o-background-size:cover;
+  background-size:cover;
+  background-position:center;
+  height: 350px;
   padding-top: 1rem;
   padding-bottom: 4rem;
 `;
 
 const Headline = styled.p`
-  font-family: 'Source Sans Pro', -apple-system, 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica', 'Arial',
-    sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
   color: ${props => props.theme.colors.grey};
-  font-size: 1.25rem;
+  font-size: 1em;
+  font-weight: 500;
   a {
     font-style: normal;
     font-weight: normal;
+    color: #595C62;
   }
 `;
 
@@ -32,17 +41,16 @@ const Post = ({ data: { prismicStartup, posts }, location }) => {
   return (
     <Layout>
       <SEO title={`${data.title.text} | ${website._title}`} pathname={location.pathname} article />
-      <Hero>
-        <Wrapper>
-          <Header />
+      <Hero />
+        <Wrapper style={{ marginTop: '3em' }}>
           <Headline>
             {data.date} — {categories && <Categories categories={categories} />}
           </Headline>
-          <h1>{data.title.text}</h1>
+          <h2>{data.title.text}</h2>
         </Wrapper>
-      </Hero>
       <Wrapper>
         <SliceZone allSlices={data.body} />
+        <Header />
         <Title style={{ marginTop: '4rem' }}>Recent posts</Title>
         <Listing posts={posts.edges} />
       </Wrapper>

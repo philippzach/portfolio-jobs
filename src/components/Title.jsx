@@ -1,9 +1,9 @@
 import styled from '@emotion/styled/macro';
 
 const Title = styled.p`
-  font-style: italic;
-  font-size: 1.4444rem;
-  position: relative;
+  font-family: Poppins;
+    font-size: 1rem;
+    position: relative;
   &:before {
     content: '';
     width: 3rem;

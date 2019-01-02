@@ -5,16 +5,31 @@ import styled from '@emotion/styled/macro';
 import { graphql } from 'gatsby';
 import { Layout, Listing, Wrapper, Title } from 'components';
 import ListingStartup from '../components/Listing/ListingStartup';
+import Background from '../../static/jobs.jpg';
+import Group from '../../static/group.svg';
+import Factory from '../../static/factory.svg';
+import Tech from '../../static/tech.svg';
+import Talent from '../../static/talent.svg';
+import Legal from '../../static/legal.svg';
 
 const Hero = styled.header`
+  background-image: url("${Background}");
   background-color: ${props => props.theme.colors.greyLight};
   display: flex;
   align-items: center;
+  background-repeat:no-repeat;
+-webkit-background-size:cover;
+-moz-background-size:cover;
+-o-background-size:cover;
+background-size:cover;
+background-position:center;
+height: 350px;
 `;
 
 const HeroInner = styled(Wrapper)`
   padding-top: 3rem;
   padding-bottom: 3rem;
+  max-width: 900px;
   h1 {
     margin-bottom: 2rem;
   }
@@ -44,6 +59,21 @@ const HeroText = styled.div`
   }
 `;
 
+const ContainerSub = styled.div`
+display:flex;
+@media (max-width: 650px) {
+  flex-direction: column;
+}
+`
+const ContainerGroup = styled.div`
+@media (max-width: 650px) {
+
+}
+@media (min-width: 650px) {
+  max-width: 40%
+}
+`
+
 
 class Index extends Component {
   render() {
@@ -53,12 +83,22 @@ class Index extends Component {
     return (
       <Layout>
         <Hero>
-          <HeroInner>
-            <h1>{homepage.data.title.text}</h1>
-            <HeroText dangerouslySetInnerHTML={{ __html: homepage.data.content.html }} />
-          </HeroInner>
         </Hero>
         <Wrapper style={{ paddingTop: '2rem', paddingBottom: '2rem' }}>
+          <HeroInner>
+            <h1 className="lh-copy tc">{homepage.data.title.text}</h1>
+            <HeroText className="lh-copy tc" dangerouslySetInnerHTML={{ __html: homepage.data.content.html }} />
+            <ContainerGroup className="center mt5">
+              <img   src={Group} />
+              </ContainerGroup>
+             <ContainerSub>
+                <img src={Factory} />
+                <img src={Tech} />
+                <img src={Legal} />
+                <img src={Talent} />
+              </ContainerSub> 
+           
+          </HeroInner>
           <Title style={{ marginTop: '4rem' }}>Swiss Startup Factory Jobs</Title>
           
           <Listing posts={posts.edges} />

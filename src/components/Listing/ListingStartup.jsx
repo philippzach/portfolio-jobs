@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import styled from '@emotion/styled/macro';
 import { ListItemStartup } from 'components/Listing';
 import { theme } from 'styles';
+import '../../styles/listitem.css';
 
 const List = styled.div`
   margin-top: 4rem;
@@ -29,7 +30,7 @@ export default class ListingStartup extends Component {
           if (post.node.data.categories[0].category) {
             categories = post.node.data.categories.map(c => c.category.document[0].data.name);
           }
-          return <ListItemStartup key={post.node.uid} node={post.node} categories={categories} />;
+          return <ListItemStartup className="hoverbox" key={post.node.uid} node={post.node} categories={categories} />;
         })}
       </List>
     );

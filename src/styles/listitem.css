@@ -1,0 +1,28 @@
+@media only screen and (max-width: 1005px) {
+    .height {
+        
+    }
+}
+@media only screen and (min-width: 650px) {
+    .paddingTop {
+        padding-top: .5em;
+    }
+}
+@media only screen and (min-width: 1005px) {
+    .height {
+        
+    }
+}
+
+a.linktopost:hover {
+    text-decoration: none;
+}
+.hoverbox {
+    padding: 1em;
+    animation: ease-in-out 200ms linear;
+    border-radius: 4px;
+}
+
+.hoverbox:hover {
+    box-shadow: 1px 2px 8px 0px rgba( 0, 0, 0, 0.2 );
+}

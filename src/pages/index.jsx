@@ -9,8 +9,6 @@ import Background from '../../static/jobs.jpg';
 import Group from '../../static/group.svg';
 import Factory from '../../static/factory.svg';
 import Tech from '../../static/tech.svg';
-import Talent from '../../static/talent.svg';
-import Legal from '../../static/legal.svg';
 
 const Hero = styled.header`
   background-image: url("${Background}");
@@ -65,11 +63,13 @@ display:flex;
 }
 `
 const ContainerGroup = styled.div`
-@media (max-width: 650px) {
+display:flex;
 
+@media (max-width: 650px) {
+  flex-direction: column;
 }
 @media (min-width: 650px) {
-  max-width: 40%
+  max-width: 36%
 }
 `
 
@@ -87,16 +87,17 @@ class Index extends Component {
           <HeroInner>
             <h1 className="lh-copy tc">{homepage.data.title.text}</h1>
             <HeroText className="lh-copy tc" dangerouslySetInnerHTML={{ __html: homepage.data.content.html }} />
-            <ContainerGroup className="center mt5">
-              <img   src={Group} />
+            <ContainerGroup className=" mt5">
+            <a style={{display: 'contents'}} href="https://swissstartupgroup.ch">
+                <img className="mb5 pr5-ns dim pointer" style={{     height: '5rem' }}   src={Group} />
+             </a>
+             <a style={{display: 'contents'}} href="https://swissstartupfactory.com"> 
+              <img className="mb5 pr5-ns dim pointer" style={{     height: '5rem' }} src={Factory} />
+              </a>
+              <a style={{display: 'contents'}} href="https://swissstartuptech.ch">
+              <img className="pr5-ns dim pointer" style={{     height: '5rem' }} src={Tech} />
+              </a>
               </ContainerGroup>
-             <ContainerSub>
-                <img src={Factory} />
-                <img src={Tech} />
-                <img src={Legal} />
-                <img src={Talent} />
-              </ContainerSub> 
-           
           </HeroInner>
           <Title style={{ marginTop: '4rem' }}>Swiss Startup Factory Jobs</Title>
           

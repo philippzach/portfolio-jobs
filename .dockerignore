@@ -1,0 +1,7 @@
+.git
+.cache
+.idea
+.DS_Store
+.prismic
+node_modules
+public

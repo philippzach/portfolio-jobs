@@ -39,6 +39,7 @@ const StyledLink = styled(Link)`
 const Description = styled.p`
     color: dimgrey;
     font-weight: 400;
+    line-height: 1.4em;
 `;
 
 const Time = styled.p`

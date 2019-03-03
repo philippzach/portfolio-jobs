@@ -13,19 +13,6 @@ import Tech from '../../static/tech.svg';
 import Comp from '../../static/comp.svg';
 import Dude from '../../static/dude.svg';
 
-/* const Hero = styled.header`
-  background-image: url("${Background}");
-  background-color: ${props => props.theme.colors.greyLight};
-  display: flex;
-  align-items: center;
-  background-repeat:no-repeat;
-  -webkit-background-size:cover;
-  -moz-background-size:cover;
-  -o-background-size:cover;
-  background-size:cover;
-  background-position:center;
-  height: 350px;
-`; */
 const Test = styled.div`
     position: relative;
     overflow: hidden;
@@ -106,8 +93,6 @@ class Index extends Component {
          <Test> 
           <Img fluid={join.childImageSharp.fluid} className="w-100" />
         </Test>
-        {/* <Hero>
-        </Hero> */}
         <Wrapper style={{ paddingTop: '2rem', paddingBottom: '2rem' }}>
           <HeroInner>
             <h1 className="lh-copy tc">{homepage.data.title.text}</h1>

@@ -30,7 +30,7 @@ const Test = styled.div`
     position: relative;
     overflow: hidden;
     vertical-align: middle;
-    max-height: 450px;
+    max-height: 350px;
 `
 
 const HeroInner = styled(Wrapper)`

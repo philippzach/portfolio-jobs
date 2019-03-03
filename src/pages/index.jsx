@@ -3,14 +3,17 @@ import Tachyons from 'tachyons/css/tachyons.min.css';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled/macro';
 import { graphql } from 'gatsby';
+import Img from 'gatsby-image';
 import { Layout, Listing, Wrapper, Title } from 'components';
 import ListingStartup from '../components/Listing/ListingStartup';
 import Background from '../../static/jobs.jpg';
 import Group from '../../static/group.svg';
 import Factory from '../../static/factory.svg';
 import Tech from '../../static/tech.svg';
+import Comp from '../../static/comp.svg';
+import Dude from '../../static/dude.svg';
 
-const Hero = styled.header`
+/* const Hero = styled.header`
   background-image: url("${Background}");
   background-color: ${props => props.theme.colors.greyLight};
   display: flex;
@@ -22,7 +25,13 @@ const Hero = styled.header`
   background-size:cover;
   background-position:center;
   height: 350px;
-`;
+`; */
+const Test = styled.div`
+    position: relative;
+    overflow: hidden;
+    vertical-align: middle;
+    max-height: 450px;
+`
 
 const HeroInner = styled(Wrapper)`
   padding-top: 3rem;
@@ -73,16 +82,32 @@ display:flex;
 }
 `
 
+const ListItem = styled.p`
+    text-indent: -23px;
+::before {
+  content: "✔";
+}
+`
+const Icon = styled.img`
+height: 4em;
+margin-bottom: 2em;
+`
+const ContainerIcons = styled.div`
+padding: 0 2em;
+`
 
 class Index extends Component {
   render() {
     const {
-      data: { homepage, posts, startup },
+      data: { homepage, posts, startup, join },
     } = this.props;
     return (
       <Layout>
-        <Hero>
-        </Hero>
+         <Test> 
+          <Img fluid={join.childImageSharp.fluid} className="w-100" />
+        </Test>
+        {/* <Hero>
+        </Hero> */}
         <Wrapper style={{ paddingTop: '2rem', paddingBottom: '2rem' }}>
           <HeroInner>
             <h1 className="lh-copy tc">{homepage.data.title.text}</h1>
@@ -98,6 +123,28 @@ class Index extends Component {
               <img className="pr5-ns dim pointer" style={{     height: '5rem' }} src={Tech} />
               </a>
               </ContainerGroup>
+          </HeroInner>
+          <HeroInner>
+            <ContainerSub>
+            <ContainerIcons>
+              <div className="tc">
+                <Icon src={Comp} />
+                <h4>Unique Work Environment</h4>
+                </div>  
+                <ListItem>Engage with inspiring people.</ListItem>
+                <ListItem>Constant opportunities to learn and grow and to provide value.</ListItem>
+                <ListItem>Autonomous and result-driven: we will give you all the freedom you need to perform at your best.</ListItem>
+            </ContainerIcons>
+            <ContainerIcons>
+            <div className="tc">
+                 <Icon src={Dude} />
+                <h4>Purpose</h4>
+            </div>    
+                <ListItem>Create true impact in the world and change the way how corporates and startups do business.</ListItem>
+                <ListItem>We want you to work on what you love and in the way you love it .</ListItem>
+                <ListItem>Awesome team members, team events and a lot of fun.</ListItem>
+            </ContainerIcons>
+            </ContainerSub>
           </HeroInner>
           <Title style={{ marginTop: '4rem' }}>Swiss Startup Factory Jobs</Title>
           
@@ -196,5 +243,15 @@ export const pageQuery = graphql`
         }
       }
     }
+    join: file(relativePath: { eq: "jobs.jpg" }) {
+      childImageSharp {
+        fluid(
+          maxWidth: 1500
+          traceSVG: { background: "#fff", color: "lightgrey" }
+        ) {
+          ...GatsbyImageSharpFluid_tracedSVG
+        }
+      }
+  }
   }
 `;

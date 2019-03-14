@@ -98,13 +98,13 @@ class Index extends Component {
             <h1 className="lh-copy tc">{homepage.data.title.text}</h1>
             <HeroText className="lh-copy tc" dangerouslySetInnerHTML={{ __html: homepage.data.content.html }} />
             <ContainerGroup className=" mt5">
-            <a style={{display: 'contents'}} href="https://swissstartupgroup.ch">
+            <a style={{display: 'contents'}} href="https://www.swissstartupgroup.com">
                 <img className="mb5 pr5-ns dim pointer" style={{     height: '5rem' }}   src={Group} />
              </a>
-             <a style={{display: 'contents'}} href="https://swissstartupfactory.com"> 
+             <a style={{display: 'contents'}} href="https://www.swissstartupfactory.com"> 
               <img className="mb5 pr5-ns dim pointer" style={{     height: '5rem' }} src={Factory} />
               </a>
-              <a style={{display: 'contents'}} href="https://swissstartuptech.ch">
+              <a style={{display: 'contents'}} href="https://www.swissstartuptech.com">
               <img className="pr5-ns dim pointer" style={{     height: '5rem' }} src={Tech} />
               </a>
               </ContainerGroup>

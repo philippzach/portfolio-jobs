@@ -220,7 +220,10 @@ export const pageQuery = graphql`
             description {
               text
             }
+<<<<<<< HEAD
 
+=======
+>>>>>>> ee9e2aa2894f19d9b94c796efbc62b8824a234e4
             date(formatString: "DD.MM.YYYY")
             categories {
               category {
@@ -252,7 +255,10 @@ export const pageQuery = graphql`
             description {
               text
             }
+<<<<<<< HEAD
 
+=======
+>>>>>>> ee9e2aa2894f19d9b94c796efbc62b8824a234e4
             date(formatString: "DD.MM.YYYY")
             categories {
               category {

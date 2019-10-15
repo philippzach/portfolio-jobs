@@ -8,6 +8,7 @@
     "dev": "gatsby develop -o",
     "build": "gatsby build",
     "serve": "gatsby serve",
+    "clean": "gatsby clean",
     "lint": "yarn run lint:md && yarn run lint:js:fix",
     "lint:js": "eslint . --ext .js,.jsx --ignore-path .gitignore",
     "lint:js:fix": "eslint . --ext .js,.jsx --fix --ignore-path .gitignore",

@@ -92,7 +92,7 @@ export const pageQuery = graphql`
             description {
               text
             }
-            coloforpicture
+
             date(formatString: "DD.MM.YYYY")
             categories {
               category {

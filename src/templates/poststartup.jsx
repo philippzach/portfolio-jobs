@@ -2,10 +2,18 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 import styled from '@emotion/styled/macro';
-import { Layout, Listing, Wrapper, SliceZone, Title, SEO, Header } from 'components';
+import {
+  Layout,
+  Listing,
+  Wrapper,
+  SliceZone,
+  Title,
+  SEO,
+  Header
+} from 'components';
 import Categories from '../components/Listing/CategoriesStartup';
 import website from '../../config/website';
-import Background from '../../static/jobs.jpg'
+import Background from '../../static/jobs.jpg';
 
 const Hero = styled.section`
   background-color: ${props => props.theme.colors.greyLight};
@@ -28,7 +36,7 @@ const Headline = styled.p`
   a {
     font-style: normal;
     font-weight: normal;
-    color: #595C62;
+    color: #595c62;
   }
 `;
 
@@ -40,18 +48,22 @@ const Post = ({ data: { prismicStartup, posts }, location }) => {
   }
   return (
     <Layout>
-      <SEO title={`${data.title.text} | ${website._title}`} pathname={location.pathname} article />
+      <SEO
+        title={`${data.title.text} | ${website._title}`}
+        pathname={location.pathname}
+        article
+      />
       <Hero />
-        <Wrapper style={{ marginTop: '3em' }}>
-          <Headline>
-            {data.date} — {categories && <Categories categories={categories} />}
-          </Headline>
-          <h2>{data.title.text}</h2>
-        </Wrapper>
+      <Wrapper style={{ marginTop: '3em' }}>
+        <Headline>
+          {data.date} — {categories && <Categories categories={categories} />}
+        </Headline>
+        <h2>{data.title.text}</h2>
+      </Wrapper>
       <Wrapper>
         <SliceZone allSlices={data.body} />
         <Header />
-        <Title style={{ marginTop: '4rem' }}>Recent posts</Title>
+        <Title style={{ marginTop: '4rem' }}>Recent Startup Jobs</Title>
         <Listing posts={posts.edges} />
       </Wrapper>
     </Layout>
@@ -62,9 +74,9 @@ export default Post;
 
 Post.propTypes = {
   data: PropTypes.shape({
-    prismicPost: PropTypes.object.isRequired,
+    prismicPost: PropTypes.object.isRequired
   }).isRequired,
-  location: PropTypes.object.isRequired,
+  location: PropTypes.object.isRequired
 };
 
 // The typenames come from the slice names
@@ -95,17 +107,6 @@ export const pageQuery = graphql`
             primary {
               text {
                 html
-              }
-            }
-          }
-
-          ... on PrismicStartupBodyQuote {
-            slice_type
-            id
-            primary {
-              quote {
-                html
-                text
               }
             }
           }
@@ -144,7 +145,7 @@ export const pageQuery = graphql`
             description {
               text
             }
-            coloforpicture
+
             date(formatString: "DD.MM.YYYY")
             categories {
               category {
@@ -159,6 +160,5 @@ export const pageQuery = graphql`
         }
       }
     }
-    
   }
 `;

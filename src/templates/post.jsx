@@ -5,7 +5,7 @@ import styled from '@emotion/styled/macro';
 import { Layout, Listing, Wrapper, SliceZone, Title, SEO, Header } from 'components';
 import Categories from '../components/Listing/Categories';
 import website from '../../config/website';
-import Background from '../../static/jobs.jpg'
+import Background from '../../static/jobs.jpg';
 
 const Hero = styled.section`
   background-color: ${props => props.theme.colors.greyLight};
@@ -28,7 +28,7 @@ const Headline = styled.p`
   a {
     font-style: normal;
     font-weight: normal;
-    color: #595C62;
+    color: #595c62;
   }
 `;
 
@@ -42,12 +42,12 @@ const Post = ({ data: { prismicPost, posts }, location }) => {
     <Layout>
       <SEO title={`${data.title.text} | ${website._title}`} pathname={location.pathname} article />
       <Hero />
-        <Wrapper style={{ marginTop: '3em' }}>
-          <Headline>
-            {data.date} — {categories && <Categories categories={categories} />}
-          </Headline>
-          <h2>{data.title.text}</h2>
-        </Wrapper>
+      <Wrapper style={{ marginTop: '3em' }}>
+        <Headline>
+          {data.date} — {categories && <Categories categories={categories} />}
+        </Headline>
+        <h2>{data.title.text}</h2>
+      </Wrapper>
       <Wrapper>
         <SliceZone allSlices={data.body} />
         <Header />
@@ -99,16 +99,6 @@ export const pageQuery = graphql`
             }
           }
 
-          ... on PrismicPostBodyQuote {
-            slice_type
-            id
-            primary {
-              quote {
-                html
-                text
-              }
-            }
-          }
           ... on PrismicPostBodyImage {
             slice_type
             id
@@ -144,7 +134,7 @@ export const pageQuery = graphql`
             description {
               text
             }
-            coloforpicture
+
             date(formatString: "DD.MM.YYYY")
             categories {
               category {
@@ -159,6 +149,5 @@ export const pageQuery = graphql`
         }
       }
     }
-    
   }
 `;

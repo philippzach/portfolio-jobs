@@ -86,91 +86,56 @@ const ContainerIcons = styled.div`
 class Index extends Component {
   render() {
     const {
-      data: { homepage, posts, startup, join }
+      data: { homepage, posts, startup, join },
     } = this.props;
     return (
       <Layout>
         <Test>
-          <Img fluid={join.childImageSharp.fluid} className='w-100' />
+          <Img fluid={join.childImageSharp.fluid} className="w-100" />
         </Test>
         <Wrapper style={{ paddingTop: '2rem', paddingBottom: '2rem' }}>
           <HeroInner>
-            <h1 className='lh-copy tc'>{homepage.data.title.text}</h1>
-            <HeroText
-              className='lh-copy tc'
-              dangerouslySetInnerHTML={{ __html: homepage.data.content.html }}
-            />
-            <ContainerGroup className=' mt5'>
-              <a
-                style={{ display: 'contents' }}
-                href='https://www.swissstartupgroup.com'
-              >
-                <img
-                  className='mb5 pr5-ns dim pointer'
-                  style={{ height: '5rem' }}
-                  src={Group}
-                />
+            <h1 className="lh-copy tc">{homepage.data.title.text}</h1>
+            <HeroText className="lh-copy tc" dangerouslySetInnerHTML={{ __html: homepage.data.content.html }} />
+            <ContainerGroup className=" mt5">
+              <a style={{ display: 'contents' }} href="https://www.swissstartupgroup.com">
+                <img className="mb5 pr5-ns dim pointer" style={{ height: '5rem' }} src={Group} />
               </a>
-              <a
-                style={{ display: 'contents' }}
-                href='https://www.swissstartupfactory.com'
-              >
-                <img
-                  className='mb5 pr5-ns dim pointer'
-                  style={{ height: '5rem' }}
-                  src={Factory}
-                />
+              <a style={{ display: 'contents' }} href="https://www.swissstartupfactory.com">
+                <img className="mb5 pr5-ns dim pointer" style={{ height: '5rem' }} src={Factory} />
               </a>
-              <a
-                style={{ display: 'contents' }}
-                href='https://www.swissstartuptech.com'
-              >
-                <img
-                  className='pr5-ns dim pointer'
-                  style={{ height: '5rem' }}
-                  src={Tech}
-                />
+              <a style={{ display: 'contents' }} href="https://www.swissstartuptech.com">
+                <img className="pr5-ns dim pointer" style={{ height: '5rem' }} src={Tech} />
               </a>
             </ContainerGroup>
           </HeroInner>
           <HeroInner>
             <ContainerSub>
               <ContainerIcons>
-                <div className='tc'>
+                <div className="tc">
                   <Icon src={Comp} />
                   <h4>Unique Work Environment</h4>
                 </div>
                 <ListItem>Engage with inspiring people.</ListItem>
+                <ListItem>Constant opportunities to learn and grow and to provide value.</ListItem>
                 <ListItem>
-                  Constant opportunities to learn and grow and to provide value.
-                </ListItem>
-                <ListItem>
-                  Autonomous and result-driven: we will give you all the freedom
-                  you need to perform at your best.
+                  Autonomous and result-driven: we will give you all the freedom you need to perform at your best.
                 </ListItem>
               </ContainerIcons>
               <ContainerIcons>
-                <div className='tc'>
+                <div className="tc">
                   <Icon src={Dude} />
                   <h4>Purpose</h4>
                 </div>
                 <ListItem>
-                  Create true impact in the world and change the way how
-                  corporates and startups do business.
+                  Create true impact in the world and change the way how corporates and startups do business.
                 </ListItem>
-                <ListItem>
-                  We want you to work on what you love and in the way you love
-                  it .
-                </ListItem>
-                <ListItem>
-                  Awesome team members, team events and a lot of fun.
-                </ListItem>
+                <ListItem>We want you to work on what you love and in the way you love it .</ListItem>
+                <ListItem>Awesome team members, team events and a lot of fun.</ListItem>
               </ContainerIcons>
             </ContainerSub>
           </HeroInner>
-          <Title style={{ marginTop: '4rem' }}>
-            Swiss Startup Factory Jobs
-          </Title>
+          <Title style={{ marginTop: '4rem' }}>Swiss Startup Factory Jobs</Title>
 
           <Listing posts={posts.edges} />
           <Title style={{ marginTop: '4rem' }}>Startup Jobs</Title>
@@ -187,8 +152,8 @@ export default Index;
 Index.propTypes = {
   data: PropTypes.shape({
     posts: PropTypes.object.isRequired,
-    startup: PropTypes.object.isRequired
-  }).isRequired
+    startup: PropTypes.object.isRequired,
+  }).isRequired,
 };
 
 export const pageQuery = graphql`
@@ -220,10 +185,6 @@ export const pageQuery = graphql`
             description {
               text
             }
-<<<<<<< HEAD
-
-=======
->>>>>>> ee9e2aa2894f19d9b94c796efbc62b8824a234e4
             date(formatString: "DD.MM.YYYY")
             categories {
               category {
@@ -255,10 +216,6 @@ export const pageQuery = graphql`
             description {
               text
             }
-<<<<<<< HEAD
-
-=======
->>>>>>> ee9e2aa2894f19d9b94c796efbc62b8824a234e4
             date(formatString: "DD.MM.YYYY")
             categories {
               category {
@@ -275,10 +232,7 @@ export const pageQuery = graphql`
     }
     join: file(relativePath: { eq: "jobs.jpg" }) {
       childImageSharp {
-        fluid(
-          maxWidth: 1500
-          traceSVG: { background: "#fff", color: "lightgrey" }
-        ) {
+        fluid(maxWidth: 1500, traceSVG: { background: "#fff", color: "lightgrey" }) {
           ...GatsbyImageSharpFluid_tracedSVG
         }
       }

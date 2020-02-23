@@ -178,8 +178,8 @@ class Index extends Component {
             Swiss Startup Capital Jobs
           </Title> */}
 
-          <Title style={{ marginTop: '4rem' }}>Startup Jobs</Title>
-          <ListingStartup posts={startup.edges} />
+          {/*  <Title style={{ marginTop: '4rem' }}>Startup Jobs</Title>
+          <ListingStartup posts={startup.edges} /> */}
         </Wrapper>
       </Layout>
     );

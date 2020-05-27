@@ -27,15 +27,15 @@ const HeroInner = styled(Wrapper)`
   h1 {
     margin-bottom: 2rem;
   }
-  @media (max-width: ${props => props.theme.breakpoints.l}) {
+  @media (max-width: ${(props) => props.theme.breakpoints.l}) {
     padding-top: 2rem;
     padding-bottom: 2rem;
   }
-  @media (max-width: ${props => props.theme.breakpoints.m}) {
+  @media (max-width: ${(props) => props.theme.breakpoints.m}) {
     padding-top: 2rem;
     padding-bottom: 2rem;
   }
-  @media (max-width: ${props => props.theme.breakpoints.s}) {
+  @media (max-width: ${(props) => props.theme.breakpoints.s}) {
     padding-top: 2rem;
     padding-bottom: 2rem;
   }
@@ -45,10 +45,10 @@ const HeroText = styled.div`
   font-size: 1.7rem;
   line-height: 1.4;
   margin-bottom: 2rem;
-  @media (max-width: ${props => props.theme.breakpoints.m}) {
+  @media (max-width: ${(props) => props.theme.breakpoints.m}) {
     font-size: 1.4rem;
   }
-  @media (max-width: ${props => props.theme.breakpoints.s}) {
+  @media (max-width: ${(props) => props.theme.breakpoints.s}) {
     font-size: 1.25rem;
   }
 `;
@@ -87,7 +87,7 @@ const ContainerIcons = styled.div`
 class Index extends Component {
   render() {
     const {
-      data: { homepage, posts, startup, join }
+      data: { homepage, posts, startup, join },
     } = this.props;
     return (
       <Layout>
@@ -179,7 +179,7 @@ class Index extends Component {
           </Title> */}
 
           {/*  <Title style={{ marginTop: '4rem' }}>Startup Jobs</Title>
-          <ListingStartup posts={startup.edges} /> */}
+          <ListingStartup posts={startup.edges} />   */}
         </Wrapper>
       </Layout>
     );
@@ -191,8 +191,8 @@ export default Index;
 Index.propTypes = {
   data: PropTypes.shape({
     posts: PropTypes.object.isRequired,
-    startup: PropTypes.object.isRequired
-  }).isRequired
+    startup: PropTypes.object.isRequired,
+  }).isRequired,
 };
 
 export const pageQuery = graphql`

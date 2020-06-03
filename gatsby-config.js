@@ -21,7 +21,17 @@ const { Elements } = RichText;
 // Labels with this name will be inline code
 const codeInline = ['text'];
 // Labels with these names will become code blocks
-const codeBlock = ['javascript', 'css', 'scss', 'jsx', 'bash', 'json', 'diff', 'markdown', 'graphql'];
+const codeBlock = [
+  'javascript',
+  'css',
+  'scss',
+  'jsx',
+  'bash',
+  'json',
+  'diff',
+  'markdown',
+  'graphql',
+];
 
 const {
   _pathPrefix,
@@ -65,7 +75,8 @@ module.exports = {
       options: {
         repositoryName: 'swiss-startup-jobs',
         accessToken: `${process.env.API_KEY}`,
-        linkResolver: () => post => `/${post.uid}`,
+        prismicToolbar: true,
+        linkResolver: () => (post) => `/${post.uid}`,
         htmlSerializer: () => (type, element, content) => {
           switch (type) {
             // First differentiate between a label and a preformatted field (e.g. the Code Block slice)
@@ -81,17 +92,25 @@ module.exports = {
               // Use the code block for labels that are in the array of "codeBlock"
               // Choose the right PrismJS highlighting with the label name
               if (codeBlock.includes(element.data.label)) {
-                return `<pre class="language-${element.data.label}"><code class="language-${
+                return `<pre class="language-${
                   element.data.label
-                }">${Prism.highlight(content, Prism.languages[element.label])}</code></pre>`;
+                }"><code class="language-${
+                  element.data.label
+                }">${Prism.highlight(
+                  content,
+                  Prism.languages[element.label]
+                )}</code></pre>`;
               }
               return null;
             }
             case Elements.preformatted: {
               if (codeBlock.includes(element.label)) {
-                return `<pre class="language-${element.label}"><code class="language-${
+                return `<pre class="language-${
                   element.label
-                }">${Prism.highlight(element.text, Prism.languages[element.label])}</code></pre>`;
+                }"><code class="language-${element.label}">${Prism.highlight(
+                  element.text,
+                  Prism.languages[element.label]
+                )}</code></pre>`;
               }
               return null;
             }

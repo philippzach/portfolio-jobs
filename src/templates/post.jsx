@@ -1,14 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { withPreview } from 'gatsby-source-prismic';
 import { graphql } from 'gatsby';
 import styled from '@emotion/styled/macro';
-import { Layout, Listing, Wrapper, SliceZone, Title, SEO, Header } from 'components';
+import {
+  Layout,
+  Listing,
+  Wrapper,
+  SliceZone,
+  Title,
+  SEO,
+  Header,
+} from 'components';
 import Categories from '../components/Listing/Categories';
 import website from '../../config/website';
 import Background from '../../static/jobs.jpg';
 
 const Hero = styled.section`
-  background-color: ${props => props.theme.colors.greyLight};
+  background-color: ${(props) => props.theme.colors.greyLight};
   background-image: url("${Background}");
   background-repeat:no-repeat;
   -webkit-background-size:cover;
@@ -22,7 +31,7 @@ const Hero = styled.section`
 `;
 
 const Headline = styled.p`
-  color: ${props => props.theme.colors.grey};
+  color: ${(props) => props.theme.colors.grey};
   font-size: 1em;
   font-weight: 500;
   a {
@@ -36,11 +45,15 @@ const Post = ({ data: { prismicPost, posts }, location }) => {
   const { data } = prismicPost;
   let categories = false;
   if (data.categories[0].category) {
-    categories = data.categories.map(c => c.category.document[0].data.name);
+    categories = data.categories.map((c) => c.category.document[0].data.name);
   }
   return (
     <Layout>
-      <SEO title={`${data.title.text} | ${website._title}`} pathname={location.pathname} article />
+      <SEO
+        title={`${data.title.text} | ${website._title}`}
+        pathname={location.pathname}
+        article
+      />
       <Hero />
       <Wrapper style={{ marginTop: '3em' }}>
         <Headline>
